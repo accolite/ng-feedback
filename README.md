@@ -1,4 +1,4 @@
-ng-error-logger
+ng-feedback
 ===============
 
-A client framework to log client errors on server
+A client framework to capture feedback from users.
