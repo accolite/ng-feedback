@@ -1,0 +1,34 @@
+{
+  "name": "ng-feedback",
+  "version": "0.0.1",
+  "description": "An AngularJS directive for logging client side errors on the server",
+  "main": [
+    "dist/ng-feedback.js"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "feedback",
+    "ng-feedback",
+    "feedback directive",
+    "angular feedback directive",
+  ],
+  "authors": [
+    "Avinash. V", "V. Ravi Teja"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/accolite/ng-feedback"
+  },
+  "dependencies": {
+    "angular": "~1.2"
+  },
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "lib"
+  ],
+  "resolutions": {
+    "angular": "1.3.6"
+  }
+}
