@@ -1,5 +1,5 @@
 /**************************************************************************
- * AngularJS-ng-error-logger, v0.0.9; MIT License;
+ * AngularJS-ng-feedback, v0.0.9; MIT License;
  * Author: Avinash V, Ravi Teja
  **************************************************************************/
 (function() {
@@ -13,6 +13,11 @@
         this.config = {};
         this.config.feedbackUrl = './api/logHttpErrors';
         this.config.feedbackEnabled = false;
+        this.config.position = {};
+        this.config.position.top = 100%;
+        this.config.position.bottom = 0%;
+        this.config.position.left = 100%;
+        this.config.position.right = 0;
         this.initializeConfig = function(feedbackUrl, feedbackEnabled) {
           this.config.feedbackUrl = feedbackUrl;
           this.config.feedbackEnabled = feedbackEnabled;
