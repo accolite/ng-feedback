@@ -18,12 +18,12 @@ An [angular.js](https://angularjs.org/), [bootstrap.js](http://getbootstrap.com)
     $ bower install angular-bootstrap
     $ bower install html2canvas
 
-    Once installation is done include the following statement in HTML
-      <feedback uiLabel="Feedback", position = "right-center"></feedback>
-    Possible options for postions:
-      right-center
-      left-center
-      right-bottom
-      left-bottom
+Once installation is done include the following statement in HTML
+  <feedback uiLabel="Feedback", position = "right-center"></feedback>
+Possible options for postions:
+  right-center
+  left-center
+  right-bottom
+  left-bottom
 
 
