@@ -1,9 +1,9 @@
 {
-  "name": "ng-error-logger",
+  "name": "angular-feedback",
   "version": "0.0.1",
   "description": "An AngularJS directive for logging client side errors on the server",
   "main": [
-    "dist/ng-error-logger.js"
+    "dist/ng-feedback.js"
   ],
   "license": "MIT",
   "keywords": [
