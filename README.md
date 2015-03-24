@@ -1,4 +1,4 @@
-ng-error-logger
+ng-feedback
 ===============
 
 A client framework to let users post feedbacks for the application
