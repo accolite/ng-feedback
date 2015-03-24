@@ -6,7 +6,7 @@
 
     'use strict';
 
-    angular.module('ng-feedback', ['ui.bootstrap'])
+    angular.module('angular-user-feedback', ['ui.bootstrap'])
     .constant('feedbackConstants', {
       position: 'right-center',
       uiLabel: 'Provide Feedback'

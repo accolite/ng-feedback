@@ -1,6 +1,6 @@
 {
   "name": "angular-user-feedback",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "An AngularJS directive for logging client side errors on the server",
   "main": [
     "dist/ng-feedback.js"
@@ -9,6 +9,8 @@
   "keywords": [
     "ng-feedback",
     "ngFeedback"
+    "angular-user-feedback"
+    "angular-feedback"
   ],
   "author": {
         "name": "https://github.com/accolite/ng-feedback/contributors"
