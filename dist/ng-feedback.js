@@ -3,9 +3,7 @@
  * Author: Avinash V, Ravi Teja
  **************************************************************************/
 (function() {
-
   'use strict';
-
   angular.module('ng-feedback', [])
     .provider(
       'feedbackProvider',
@@ -54,4 +52,15 @@
     .config(function($httpProvider) {
       $httpProvider.interceptors.push('angularFeedback'); //Push the interceptor here
     });
+
+    .directive('userFeedback', 
+      function factory(injectables) {
+        var directiveDefinitionObject = {
+        restrict: 'EA',
+        templateUrl: '',
+        replace: true,
+        
+        };
+        return directiveDefinitionObject;
+});
 })();
