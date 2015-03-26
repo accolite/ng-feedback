@@ -21,6 +21,7 @@ An [angular.js](https://angularjs.org/), [bootstrap.js](http://getbootstrap.com)
 Once installation is done include the following statement in index file :
 
     $   <script src="bower_components/angular-user-feedback/dist/angular-user-feedback.js"></script>
+    $   <script src="bower_components/html2canvas/build/html2canvas.min.js"></script>
     $   <link rel="stylesheet" href="bower_components/angular-user-feedback/dist/angular-user-feedback.css" />
 
 Also include the bower component in your app config like 
@@ -40,4 +41,15 @@ Possible options for postions:
     $  right-bottom
     $  left-bottom
 
+
+The API to send the feedback to the server can be overridden in your applicaiton's app.js, 
+###Steps to configure feedbackConfigurations
+1. Configure postFeedbackurl
+    app.config(function(feedbackConfigProvider) {
+        feedbackConfigProvider.setPostFeedbackUrl('/api/feedbacks');
+    })
+2. configure categories
+    app.config(function(feedbackConfigProvider) {
+        feedbackConfigProvider.setCategories(['category1, 'category2', 'category2']);
+    })
 

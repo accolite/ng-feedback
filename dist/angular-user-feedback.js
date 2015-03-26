@@ -96,9 +96,6 @@
               template: '<div class = "modal-header">' + 
                 'Provide Feedback </div>' + 
                 '<div class = "feedback-panel modal-body">' + 
-                '<div class="panel panel-default">' + 
-                  '<div class="panel-header"> {{displayText}} </div>' + 
-                  '<div class="panel-body">' + 
                   '<form name="feedbackForm">' + 
                     '<div class = "row padding-bottom-10">' +
                       '<div class = "col-xs-6">' +
@@ -139,29 +136,34 @@
                         '</div>'+
                       '</div>'+
                     '</div>' + 
-                    '</div>' +
-                     '<div ng-if = "canSendScreenShot">' +
-                      '<div class="checkbox">' + 
-                        '<label>' + 
-                          '<input type="checkbox" ng-model="showscreenshot"  ng-click="info()">' + 
-                            'Click to automatically attach a screenshot of this page {{showscreenshot}}' + 
-                        '</label>' + 
-                      '</div>' + 
-                      '<div id="screenshot"  style="cursor:pointer;" ng-hide="!showscreenshot">' + 
-                              '<div><a  data-toggle="modal"  data-target="#imageModal"  >' + 
-                               '<img src="{{data.imageData}}" alt="loading..." height="100" width="450" /> </a></div>' + 
+                    '<div class = "row padding-bottom-10">' +
+                      '<div ng-if = "canSendScreenShot" class="col-xs-8">' +
+                        '<div class="checkbox">' + 
+                          '<label>' + 
+                            '<input type="checkbox" ng-model="showscreenshot"  ng-click="info()">' + 
+                              'Click to automatically attach a screenshot of this page {{showscreenshot}}' + 
+                          '</label>' + 
+                        '</div>' + 
+                        '<div id="screenshot"  style="cursor:pointer;" ng-hide="!showscreenshot">' + 
+                                '<div><a  data-toggle="modal"  data-target="#imageModal"  >' + 
+                                 '<img src="{{data.imageData}}" alt="loading..." height="100" width="450" /> </a></div>' + 
+                        '</div>' +
                       '</div>' + 
                     '</div>' + 
-                    '<div class="form-group">' + 
-                      '<label for="ratelabel">Rate Us:</label>   ' + 
-                      '<rating ng-model="rate" max="max" on-hover="hoveringOver(value)" on-leave="overStar = null" state-on="\'glyphicon-ok-sign\'" state-off="\'glyphicon-ok-circle\'" ></rating>' + 
-                      '<span class="label" ng-class="{\'label-warning\': rate<3, \'label-info\': rate>=3 && rate<7, \'label-success\': rate>=7}" >{{rate}}/{{max}}</span>' + 
+                    '<div class = "row padding-bottom-10">' +
+                      '<div class="form-group col-xs-8"">' + 
+                        '<label for="ratelabel">Rate Us:</label>   ' + 
+                        '<rating ng-model="rate" max="max" on-hover="hoveringOver(value)" on-leave="overStar = null" state-on="\'glyphicon-ok-sign\'" state-off="\'glyphicon-ok-circle\'" ></rating>' + 
+                        '<span class="label" ng-class="{\'label-warning\': rate<3, \'label-info\': rate>=3 && rate<7, \'label-success\': rate>=7}" >{{rate}}/{{max}}</span>' + 
+                      '</div>' + 
+                    '</div>' + 
+                    '<div class = "feedback-buttons row padding-bottom-10">' +
                       '<button ng-click="cancel()" class="btn btn-sm btn-danger pull-right">Cancel</button>' + 
                       '<button type="submit" ng-click="ok()" ng-disabled=" feedbackForm.$invalid " class="btn btn-sm btn-primary pull-right">Submit</button>' + 
                     '</div>' + 
+
                   '</form> ' + 
-                  '</div>' + 
-                '</div>' + 
+
               '</div>' + 
               '<div class = "modal-footer"> </div>'
 

@@ -52,3 +52,13 @@
 .padding-bottom-10 {
   padding-bottom: 10px;
 }
+
+.feedback-buttons .btn {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.feedback-buttons .btn-primary {
+  background: none;
+  background-color: #0b69b6;
+}
