@@ -3,7 +3,8 @@
   "version": "0.0.2",
   "description": "An AngularJS directive for logging client side errors on the server",
   "main": [
-    "dist/angular-user-feedback.js"
+    "dist/angular-user-feedback.js",
+    "dist/angular-user-feedback.css"
   ],
   "license": "MIT",
   "keywords": [
