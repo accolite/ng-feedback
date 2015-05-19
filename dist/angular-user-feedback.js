@@ -1,6 +1,6 @@
 /**************************************************************************
 * AngularJS-ng-feedback, v0.0.9; MIT License;
-* Author: Ankit Jain
+* Author: Accolite
 **************************************************************************/
 (function(){
 
@@ -76,15 +76,15 @@
                   '{{displayText}}</div>',
         controller: ['$scope', '$element', '$attrs', '$modal', '$http', '$timeout', 'feedbackConstants', 'feedbackConfig', 'localStorageDetails', 'browserDetails', 'navigationTimings', 
         function ($scope, $element, $attrs, $modal, $http,  $timeout, feedbackConstants, feedbackConfig, localStorageDetails, browserDetails, navigationTimings) {
-          if(!$scope.position) {
+          if(!$attrs.position) {
             $scope.elementPosition = feedbackConstants.position;
           } else {
-            $scope.elementPosition = $scope.position;
+            $scope.elementPosition = $attrs.position;
           }
-          if(!$scope.uiLabel) {
+          if(!$attrs.uilabel) {
             $scope.displayText = feedbackConstants.uiLabel;
           } else {
-            $scope.elementPosition = $scope.uiLabel;
+            $scope.displayText = $attrs.uilabel;
           }
 
           $scope.popupFeedback = function() {
