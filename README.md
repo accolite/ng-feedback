@@ -2,6 +2,10 @@ angular-user-feedback
 ===============
 
 A client framework to let users post feedbacks for the application
+## What all it captures
+1. It captures the feedback of user.
+2. It captures the machine details.
+3. It captures the browser details.
 
 ## How to use
 
