@@ -15,7 +15,6 @@
       defaultReadFeedbackUrl: './api/feedbacks',
       feedbackCategories: ['Suggest Enhancement', 
       'Report an Issue',
-      'Suggest Enhancement',
       'Liked this Application', 
       'Others/ General Feedback'
       ]
@@ -140,7 +139,7 @@
                       '<div ng-if = "canSendScreenShot" class="col-xs-8">' +
                         '<div class="checkbox">' + 
                           '<label>' + 
-                            '<input type="checkbox" ng-model="showscreenshot"  ng-click="info()">' + 
+                            '<input type="checkbox" ng-model="showscreenshot"  ng-change="info()">' + 
                               'Click to automatically attach a screenshot of this page {{showscreenshot}}' + 
                           '</label>' + 
                         '</div>' + 
@@ -221,12 +220,22 @@
           $scope.overStar = value;
           $scope.rate = value;
       };  
-      html2canvas(document.body, {
-        onrendered: function(canvas) {
-          var data =  canvas.toDataURL();
-          $scope.data.imageData= data;
+      $scope.info = function(newValue) {
+        if(newValue && !$scope.data.imageData) {
+          html2canvas(document.body, {
+            onrendered: function(canvas) {
+              var data =  canvas.toDataURL();
+              $scope.data.imageData= data;
+              $timeout(function(){
+                $scope.$apply(function() {
+                  updateImageField(data);
+                });
+              });
+            }
+          });
         }
-      });
+      }
+
       $scope.ok = function() {
         $scope.data.rating = $scope.rate;
         $modalInstance.close($scope.data);
