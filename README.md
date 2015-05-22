@@ -49,6 +49,7 @@ Possible options for postions:
 
 ##Latest Additions
 We can capture the user name, email, phone number by passing these fields as attributes in the feedback tag. Please take a look at the sample feedback tag
+
     $ '<feedback uiLabel="Feedback", position = "right-center", username="app.user.username", username="app.user.email", phone-number="app.user.phoneNumber"></feedback>'
 
 
