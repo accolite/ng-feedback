@@ -1,5 +1,5 @@
 /**************************************************************************
-* AngularJS-ng-feedback, v0.0.9; MIT License;
+* AngularJS-ng-feedback, v1.0.2; MIT License;
 * Author: Accolite
 **************************************************************************/
 (function(){
@@ -69,7 +69,10 @@
         replace: false,
         scope: {
           uiLabel: '=uiLabel',
-          position: '=position'
+          position: '=position',
+          username: '=username',
+          email: '=email',
+          phoneNumber: '=phoneNumber'
         },
         template: '<div ng-class="elementPosition" ng-click="popupFeedback()" class="feedback-link">' +
                   '{{displayText}}</div>',
@@ -85,10 +88,16 @@
           } else {
             $scope.displayText = $attrs.uilabel;
           }
-
+          console.log('$attrs', $attrs);
+          console.log('$scope', $scope);
           $scope.popupFeedback = function() {
             $scope.payload = {
-              data: {displayText: $scope.displayText},
+              data: {
+                displayText: $scope.displayText,
+                userName: $scope.username,
+                email: $scope.email,
+                phoneNumber: $scope.phoneNumber
+              },
               config: {}
             };
             var modalInstance = $modal.open({
@@ -212,7 +221,10 @@
       $scope.canSendScreenShot = feedbackConfig.canSendScreenShot();
       $scope.showscreenshot;
       $scope.max = 10;
-      $scope.data = {}
+      $scope.data = {};
+      $scope.data.userName = payload.data.userName;
+      $scope.data.email = payload.data.email;
+      $scope.data.phoneNumber = payload.data.phoneNumber;
       $scope.rate = 1;
 
       $scope.displayText = payload.data.displayText;

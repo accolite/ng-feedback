@@ -1,6 +1,8 @@
 angular-user-feedback
 ===============
 
+
+
 A client framework to let users post feedbacks for the application
 ## What all it captures
 1. It captures the feedback of user.
@@ -33,7 +35,7 @@ Also include the bower component in your app config like
     $ angular.module('appName', [
       'angular-user-feedback',
 
-Then insclude the following line in your html and you should start seeing a feedback link
+Then include the following line in your html and you should start seeing a feedback link
 
     $ '<feedback uiLabel="Feedback", position = "right-center"></feedback>'
 
@@ -44,6 +46,10 @@ Possible options for postions:
     $  left-center
     $  right-bottom
     $  left-bottom
+
+##Latest Additions
+We can capture the user name, email, phone number by passing these fields as attributes in the feedback tag. Please take a look at the sample feedback tag
+    $ '<feedback uiLabel="Feedback", position = "right-center", username="app.user.username", username="app.user.email", phone-number="app.user.phoneNumber"></feedback>'
 
 
 The API to send the feedback to the server can be overridden in your applicaiton's app.js, 
