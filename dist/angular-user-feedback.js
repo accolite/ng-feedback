@@ -139,8 +139,8 @@
                       '<div ng-if = "canSendScreenShot" class="col-xs-8">' +
                         '<div class="checkbox">' + 
                           '<label>' + 
-                            '<input type="checkbox" ng-model="showscreenshot"  ng-change="info()">' + 
-                              'Click to automatically attach a screenshot of this page {{showscreenshot}}' + 
+                            '<input type="checkbox" ng-model="showscreenshot"  ng-click="info(true)">' + 
+                              'Click to automatically attach a screenshot of this page' + 
                           '</label>' + 
                         '</div>' + 
                         '<div id="screenshot"  style="cursor:pointer;" ng-hide="!showscreenshot">' + 
@@ -206,7 +206,7 @@
         }]
       };
     }])
-    .controller('FeedBackModalCtrl', function($scope, $modalInstance, payload, feedbackConfig, browserDetails) {
+    .controller('FeedBackModalCtrl', function($scope, $modalInstance, payload, feedbackConfig, browserDetails, $timeout) {
       $scope.browserDetails = browserDetails;
       $scope.categories = feedbackConfig.getFeedbackCategories();
       $scope.canSendScreenShot = feedbackConfig.canSendScreenShot();
@@ -220,6 +220,10 @@
           $scope.overStar = value;
           $scope.rate = value;
       };  
+      var updateImageField = function(data) {
+        $scope.data.imageData= data;        
+      }  
+
       $scope.info = function(newValue) {
         if(newValue && !$scope.data.imageData) {
           html2canvas(document.body, {
