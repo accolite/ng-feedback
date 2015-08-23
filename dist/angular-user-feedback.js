@@ -52,6 +52,12 @@
         this.setFeedbackCategories = function(categories) {
           this.config.feedbackCategories = categories;
         }
+        this.setFeedbackCategoriesUrl = function(feedbackcategoriesurl) {
+          this.config.feedbackCategoriesUrl = feedbackcategoriesurl;
+        }
+        this.getFeedbackCategoriesUrl = function() {
+          return this.config.feedbackCategoriesUrl;
+        }
         this.resetFeedbackCategories = function() {
           return this.config.feedbackCategories = feedbackConstants.feedbackCategories;
         }
@@ -215,9 +221,28 @@
         }]
       };
     }])
-    .controller('FeedBackModalCtrl', function($scope, $modalInstance, payload, feedbackConfig, browserDetails, $timeout) {
+    .controller('FeedBackModalCtrl', function($scope, $modalInstance, payload, feedbackConfig, browserDetails, $timeout, $http) {
       $scope.browserDetails = browserDetails;
-      $scope.categories = feedbackConfig.getFeedbackCategories();
+      if(feedbackConfig.getFeedbackCategoriesUrl()) {
+        var req = {
+         method: 'GET',
+         url: feedbackConfig.getFeedbackCategoriesUrl(),
+         headers: {
+           'Content-Type': 'application/json'
+         }
+        }
+        $http(req)
+        .success(function(data) {
+          console.log('Success');
+          feedbackConfig.setFeedbackCategories(data);
+          $scope.categories = feedbackConfig.getFeedbackCategories();
+        })
+        .error(function(){
+          console.log('Failed')
+        });
+      } else {
+        $scope.categories = feedbackConfig.getFeedbackCategories();
+      }
       $scope.canSendScreenShot = feedbackConfig.canSendScreenShot();
       $scope.showscreenshot;
       $scope.max = 10;
