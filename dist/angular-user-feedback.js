@@ -20,7 +20,7 @@
       ]
     })
     .provider(
-      'feedbackConfig',function(feedbackConstants) {
+      'feedbackConfig',['feedbackConstants', function(feedbackConstants) {
         this.config = {};
 
         this.initializeConfig = function() {
@@ -68,7 +68,7 @@
           return( this );
         }
       }
-    )    
+    ])    
     .directive('feedback', ['$compile', function ($compile) {
       return  {
         restrict: 'EA',
@@ -107,7 +107,7 @@
               config: {}
             };
             var modalInstance = $modal.open({
-              template: '<div class = "modal-header">' + 
+              template: '<!--Feedbackmodal--><div id = "feedback-modal" class = "modal-header">' + 
                 'Provide Feedback </div>' + 
                 '<div class = "feedback-panel modal-body">' + 
                   '<form name="feedbackForm">' + 
@@ -146,7 +146,7 @@
                       '<div class = "col-xs-12">' +
                         '<div class="input-group">'+
                           '<span class="input-group-addon">Comments</span>'+
-                          '<textarea type="text" class="form-control" ng-model="data.comment" / rows=3></textarea><br/>' + 
+                          '<textarea required type="text" class="form-control" ng-model="data.comment" / rows=3></textarea><br/>' + 
                         '</div>'+
                       '</div>'+
                     '</div>' + 
@@ -179,7 +179,7 @@
                   '</form> ' + 
 
               '</div>' + 
-              '<div class = "modal-footer"> </div>'
+              '<div class = "modal-footer"> </div><!--End Feedbackmodal-->'
 
               ,
               controller: 'FeedBackModalCtrl',
@@ -221,7 +221,7 @@
         }]
       };
     }])
-    .controller('FeedBackModalCtrl', function($scope, $modalInstance, payload, feedbackConfig, browserDetails, $timeout, $http) {
+    .controller('FeedBackModalCtrl',['$scope', '$modalInstance', 'payload', 'feedbackConfig', 'browserDetails', '$timeout', '$http', function($scope, $modalInstance, payload, feedbackConfig, browserDetails, $timeout, $http) {
       $scope.browserDetails = browserDetails;
       if(feedbackConfig.getFeedbackCategoriesUrl()) {
         var req = {
@@ -263,7 +263,11 @@
 
       $scope.info = function(newValue) {
         if(newValue && !$scope.data.imageData) {
-          html2canvas(document.body, {
+          var newObject = jQuery.extend(true, {}, document.body);
+          newObject = newObject.innerHtml.replace(new RegExp('<!--Feedbackmodal-->*<!--End Feedbackmodal-->'), "");
+          //newObject.removeChild(oP);
+          console.log(newObject);
+          html2canvas(newObject.body, {
             onrendered: function(canvas) {
               var data =  canvas.toDataURL();
               $scope.data.imageData= data;
@@ -285,7 +289,7 @@
       $scope.cancel = function() {
         $modalInstance.dismiss('cancel');
       };
-    })
+    }])
     .factory(
       'browserDetails',
       function( ) {

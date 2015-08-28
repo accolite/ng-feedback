@@ -1,6 +1,6 @@
 {
   "name": "angular-user-feedback",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "An AngularJS directive for logging client side errors on the server",
   "main": [
     "dist/angular-user-feedback.js",
